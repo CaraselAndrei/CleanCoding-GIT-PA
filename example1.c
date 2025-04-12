@@ -106,12 +106,12 @@ void canbe(GPH *g, int nrv, STK *s1, STK *s2) // 0 sau 1 daca poate fi sau nu aj
         DFS(g, s1, i);
         wipe(g, nrv);
         DFS(g, s2, i);
-        for (int j = 0; j < nrv && !abs; j++)
-            if(s1->arr[i] == j && s2->arr[j] == i){
-                *canbe = 1;
+        for (int j = 0; j < nrv && !abs; j++){
+            if(s1->arr[i] == s2->arr[j] ){
+                canbe = 1;
             }
-
         }
+    }
 }
 
 
@@ -133,4 +133,5 @@ int main() {
     insert_edges(g, nr_drumuri, nr_restaurante);
 
     canbe(g, nr_restaurante, s1, s2);
+    return 0;
 }
